@@ -6,7 +6,8 @@ import Input from '@/components/Input'
 
 Vue.use(Router)
 
-export default new Router({
+// ルーティング設定
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -21,3 +22,16 @@ export default new Router({
     }
   ]
 })
+
+// マウント前の処理
+router.beforeEach((to, from, next) => {
+  console.log('before')
+  next()
+})
+
+// マウント後の処理
+router.afterEach((to, from) => {
+  console.log('after')
+})
+
+export default router

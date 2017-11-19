@@ -11,7 +11,7 @@ export default {
   name: 'Test',
   data () {
     return {
-      msg: 'Test',
+      msg: 'Input',
       sample: 'sample'
     }
   }

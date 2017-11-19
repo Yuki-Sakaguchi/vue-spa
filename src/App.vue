@@ -36,7 +36,7 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  margin: 20px;
+  margin: 20px 40px;
 
   ul {
     padding: 0;
@@ -47,6 +47,11 @@ export default {
       text-decoration: none;
       color: #35495e;
       font-weight: bold;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
   }
 }
