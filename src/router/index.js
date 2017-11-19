@@ -26,12 +26,17 @@ const router = new Router({
 // マウント前の処理
 router.beforeEach((to, from, next) => {
   console.log('before')
+  console.log(to)
+  console.log(from)
+  console.log(next)
   next()
 })
 
 // マウント後の処理
 router.afterEach((to, from) => {
   console.log('after')
+  console.log(to)
+  console.log(from)
 })
 
 export default router
