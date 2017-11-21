@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import HelloWorld from '@/components/HelloWorld'
-import Input from '@/components/Input'
+import HelloWorld from '@/components/top/HelloWorld'
+
+import Content1 from '@/components/content1/top'
+import SubTop from '@/components/content1/sub/top'
+import Sub1 from '@/components/content1/sub/sub1'
+import Sub2 from '@/components/content1/sub/sub2'
+
+import Content2 from '@/components/content2/top'
 
 Vue.use(Router)
 
@@ -16,9 +22,27 @@ const router = new Router({
       component: HelloWorld
     },
     {
-      path: '/input',
-      name: 'Input',
-      component: Input
+      path: '/content1/',
+      component: Content1,
+      children: [
+        {
+          path: '/',
+          component: SubTop
+        },
+        {
+          path: 'sub1',
+          component: Sub1
+        },
+        {
+          path: 'sub2',
+          component: Sub2
+        }
+      ]
+    },
+    {
+      path: '/content2',
+      name: 'Content2',
+      component: Content2
     }
   ]
 })

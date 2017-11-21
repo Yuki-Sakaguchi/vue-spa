@@ -4,13 +4,14 @@
     <h1>Vue</h1>
 
     <transition name="fade">
-      <router-view/>
+      <router-view></router-view>
     </transition>
 
     <nav class="global-nav">
       <ul>
-        <li><router-link to="/" exact>Home</router-link></li>
-        <li><router-link to="/input" exact>Input</router-link></li>
+        <li><router-link to="/" exact>HOME</router-link></li>
+        <li><router-link to="/content1" exact>CONTENT1</router-link></li>
+        <li><router-link to="/content2" exact>CONTENT2</router-link></li>
       </ul>
     </nav>
   </div>
@@ -22,7 +23,12 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+/* =====================
+
+グローバルのスタイル
+
+===================== */
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -63,5 +69,14 @@ export default {
 .fade-enter,
 .fade-leave {
   opacity: 0
+}
+
+body {
+  transition: background-color 0.3s;
+}
+@media (max-width: 480px) {
+  body {
+    background: #ccc;
+  } 
 }
 </style>
