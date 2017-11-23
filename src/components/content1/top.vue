@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="content">
     <h1>{{ msg }}</h1>
     
     <nav class="sub-nav">
@@ -10,9 +10,11 @@
       </ul>
     </nav>
 
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
+    <div class="sub-content">
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -40,25 +42,70 @@ export default {
 
 <style lang="scss">
 .sub-nav {
-  position: absolute;
-  right: 0;
-  margin: 20px 40px;
+  margin: auto;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
   ul {
     padding: 0;
-    text-align: right;
     list-style: none;
 
-    a {
-      text-decoration: none;
-      color: #35495e;
-      font-weight: bold;
-      transition: 0.3s;
+    li {
+      width: 33.3%;
+      float: left;
 
-      &:hover {
-        opacity: 0.6;
+      a {
+        display: block;
+        padding: 10px 0;
+        text-decoration: none;
+        color: #35495e;
+        font-weight: bold;
+        transition: 0.3s;
+        position: relative;
+
+        &:before {
+          content: "";
+          width: 0px;
+          height: 2px;
+          background: #41b882;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          transition: 0.5s;
+        }
+
+        &:hover {
+          opacity: 0.6;
+
+          &:before {
+            width: 50%;
+          }
+        }
       }
     }
+  }
+}
+
+.sub-content {
+  border: 1px solid #41b882;
+  background-color: #41b882;
+  margin: 20px;
+
+  .sub-title {
+    color: white;
+  }
+
+  p {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+    color: white;
   }
 }
 </style>

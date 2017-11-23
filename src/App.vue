@@ -3,9 +3,11 @@
     <img src="./assets/logo.png">
     <h1>Vue</h1>
 
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
+    <main class="main-content">
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
+    </main>
 
     <nav class="global-nav">
       <ul>
@@ -24,6 +26,8 @@ export default {
 </script>
 
 <style lang="scss">
+$C_MAIN: #aaa;
+
 /* =====================
 
 グローバルのスタイル
@@ -36,6 +40,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  width: 80%;
+  margin: auto;
 }
 
 .global-nav {
@@ -54,9 +60,36 @@ export default {
       color: #35495e;
       font-weight: bold;
       transition: 0.3s;
+      position: relative;
+
+      &:before,
+      &:after {
+        content: "";
+        width: 0px;
+        height: 2px;
+        background: #41b882;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        transition: 0.2s;
+      }
+
+      &:before {
+        left: calc(100% + 5px);
+      }
+
+      &:after {
+        right: calc(100% + 5px);
+      }
 
       &:hover {
-        opacity: 0.6;
+        opacity: 0.8;
+
+        &:before,
+        &:after {
+          width: 10px;
+        }
       }
     }
   }
@@ -71,12 +104,9 @@ export default {
   opacity: 0
 }
 
-body {
-  transition: background-color 0.3s;
-}
-@media (max-width: 480px) {
-  body {
-    background: #ccc;
-  } 
+.main-content {
+  margin: 40px 0;
+  padding: 20px;
+  border: 1px solid $C_MAIN;
 }
 </style>
